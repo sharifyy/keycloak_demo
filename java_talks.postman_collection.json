@@ -1,0 +1,741 @@
+{
+	"info": {
+		"_postman_id": "e0a621d0-9b13-41dd-a898-1372f174bd2b",
+		"name": "java_talks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11533320"
+	},
+	"item": [
+		{
+			"name": "standard_flow",
+			"item": [
+				{
+					"name": "pkce",
+					"item": [
+						{
+							"name": "PKCE code url",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/auth?response_type=code&client_id=js_app&redirect_uri=http://localhost:9090/callback&code_challenge_method=S256&code_challenge=gTk9sa_1YRAhaBAmGCSFGBf7_KBdwBCLGUqitbIhoZY&scope=openid&state=optional",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"java_talks",
+										"protocol",
+										"openid-connect",
+										"auth"
+									],
+									"query": [
+										{
+											"key": "response_type",
+											"value": "code"
+										},
+										{
+											"key": "client_id",
+											"value": "js_app"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost:9090/callback"
+										},
+										{
+											"key": "code_challenge_method",
+											"value": "S256"
+										},
+										{
+											"key": "code_challenge",
+											"value": "gTk9sa_1YRAhaBAmGCSFGBf7_KBdwBCLGUqitbIhoZY"
+										},
+										{
+											"key": "scope",
+											"value": "openid"
+										},
+										{
+											"key": "state",
+											"value": "optional"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PKCE token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "authorization_code",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "js_app",
+											"type": "text"
+										},
+										{
+											"key": "code_verifier",
+											"value": "NFguhkOY_L14t1KVLksQIolvSc1iPL9Z0ISd6Js0gfA",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "05a39e34-5ece-487b-a7f4-540616ec1b41.39e2f46c-8492-4e1a-ac8b-3d1095accb68.9ff47079-162e-4067-81ac-d2b2749e23cb",
+											"type": "text"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost:9090/callback",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"java_talks",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "code_public_client",
+					"item": [
+						{
+							"name": "code url",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/auth?client_id=android_app&response_type=code&scope=openid&redirect_uri=http://localhost:9090/callback&state=whateverItIsOptional",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"java_talks",
+										"protocol",
+										"openid-connect",
+										"auth"
+									],
+									"query": [
+										{
+											"key": "client_id",
+											"value": "android_app"
+										},
+										{
+											"key": "response_type",
+											"value": "code"
+										},
+										{
+											"key": "scope",
+											"value": "openid"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost:9090/callback"
+										},
+										{
+											"key": "state",
+											"value": "whateverItIsOptional"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "standard flow token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "authorization_code",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "android_app",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "3eec0022-1239-44ff-927a-e7c556f58963.694d41f6-0344-4262-8fc8-0ceec05561f4.771698d5-d9f4-470a-86ed-a06c6d266dc3",
+											"type": "text"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost:9090/callback",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"java_talks",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "code_confidential_client",
+					"item": [
+						{
+							"name": "code url",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/auth?client_id=demo&response_type=code&scope=openid&redirect_uri=http://localhost:9090/callback&state=whateverItIsOptional",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"java_talks",
+										"protocol",
+										"openid-connect",
+										"auth"
+									],
+									"query": [
+										{
+											"key": "client_id",
+											"value": "demo"
+										},
+										{
+											"key": "response_type",
+											"value": "code"
+										},
+										{
+											"key": "scope",
+											"value": "openid"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost:9090/callback"
+										},
+										{
+											"key": "state",
+											"value": "whateverItIsOptional"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "standard flow token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "authorization_code",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "demo",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "u5qnSlEBTqqqTlBIw7IbjaSEHFVnSKAq",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "d40879b6-0066-4dba-b713-79d1b586dbd2.d88cb6a7-8965-42af-b0f4-1291eedb439d.5680fcd9-1a8c-404d-9f8f-53154c7ddae2",
+											"type": "text"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost:9090/callback",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"java_talks",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "password_grant",
+			"item": [
+				{
+					"name": "password grant type token ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "demo",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "u5qnSlEBTqqqTlBIw7IbjaSEHFVnSKAq",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "sharifi",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid profile email",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"java_talks",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "implicit_grant",
+			"item": [
+				{
+					"name": "implicit flow url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/auth?response_type=token&client_id=demo&redirect_uri=http://localhost:9090/callback",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"java_talks",
+								"protocol",
+								"openid-connect",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "token"
+								},
+								{
+									"key": "client_id",
+									"value": "demo"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:9090/callback"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "referesh_token",
+			"item": [
+				{
+					"name": "refresh token grant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "demo",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "u5qnSlEBTqqqTlBIw7IbjaSEHFVnSKAq",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5MmEwOTI5NC1kMjIyLTRmMzYtOWY3MS1iZTMxMDkxOTA4ODUifQ.eyJleHAiOjE3MDI1NjY4MDAsImlhdCI6MTcwMjU2NTAwMCwianRpIjoiZmZlY2EzMWItZDU3Zi00MmFjLTg1MmQtZGU1ZjJlYmZmOTZiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9qYXZhX3RhbGtzIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9qYXZhX3RhbGtzIiwic3ViIjoiMzVmNGY2NzgtNjJjYS00MjRhLWI1ZDUtNDUyYjMwYWY0MDhjIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImRlbW8iLCJzZXNzaW9uX3N0YXRlIjoiYjI1YTdmN2EtMDljOS00ZmU0LTlhYWQtNzAxMjE4YTE1ZTBiIiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImIyNWE3ZjdhLTA5YzktNGZlNC05YWFkLTcwMTIxOGExNWUwYiJ9.DXtLFJaTd7RNzKTdDgo2YsaGH9zYtRjfgznNMDxFVEo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"java_talks",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client_credential_grant",
+			"item": [
+				{
+					"name": "client credential",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "demo",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "gpryzOdlM5Vufz1RtiC7AcIEplmoYWdR",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"java_talks",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "spring_resources",
+			"item": [
+				{
+					"name": "create books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGeW5JSjFHVlVKZnE0VGNwY3U3Uk9YNEVGV2Q5ZTQxOVBmYjRwUVYzUVhVIn0.eyJleHAiOjE3MDI1NzI5NjAsImlhdCI6MTcwMjU2OTY2MCwianRpIjoiZDA5MTE5OTEtZGVjNS00MTVhLWFlZTctODhjZjMzNjk1ZjkwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9qYXZhX3RhbGtzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjM1ZjRmNjc4LTYyY2EtNDI0YS1iNWQ1LTQ1MmIzMGFmNDA4YyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRlbW8iLCJzZXNzaW9uX3N0YXRlIjoiZjUzMWY4Y2UtYjI4Yi00ZjhmLWFiNjctOTc2YjAwYTQ1MWJiIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwOTAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1qYXZhX3RhbGtzIiwiYm9va19yZWFkZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImJvb2tfd3JpdGVyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImY1MzFmOGNlLWIyOGItNGY4Zi1hYjY3LTk3NmIwMGE0NTFiYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTW9oYW1hZCBTaGFyaWZpIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2hhcmlmaSIsImdpdmVuX25hbWUiOiJNb2hhbWFkIiwiZmFtaWx5X25hbWUiOiJTaGFyaWZpIiwiZW1haWwiOiJzaGFyaWZpQGdtYWlsLmNvbSJ9.qrcteX_bPmITp0UUVR-4q-9lly6y1IWksQOTSHmJSRMHRt6VoGuBo6mEskuF6yvki-rZf1_LPLDcqTUPRNVWOzWWRANWRvLK4xNCjg3sa1ZxB0-X_-zOMdUEkQ7JqlPoOdsEu3E9bu4KGp-S415jjzYt9FJKyMlEOQ0WWzACHWQ9vlo4R8_hXd4ljESlxCy4LgEpj1hY0Uwc3GA5KZkaLoxrvqOwWNnj0nfp-pMkaCb9o2cE43CmUoC0MkK2uLs9hEPSQjtkGJCt_sk6hDibOAl_NRIWLZhuB2yzS5LTXTxgcojCh0_zdTt-xVjfRr_b9AVr9BfBbTqOPZaYtuRvYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Microservices\",\n    \"author\": \"Chris Richardson\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reactive books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGeW5JSjFHVlVKZnE0VGNwY3U3Uk9YNEVGV2Q5ZTQxOVBmYjRwUVYzUVhVIn0.eyJleHAiOjE3MDI1NzI5NjAsImlhdCI6MTcwMjU2OTY2MCwianRpIjoiZDA5MTE5OTEtZGVjNS00MTVhLWFlZTctODhjZjMzNjk1ZjkwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9qYXZhX3RhbGtzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjM1ZjRmNjc4LTYyY2EtNDI0YS1iNWQ1LTQ1MmIzMGFmNDA4YyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRlbW8iLCJzZXNzaW9uX3N0YXRlIjoiZjUzMWY4Y2UtYjI4Yi00ZjhmLWFiNjctOTc2YjAwYTQ1MWJiIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwOTAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1qYXZhX3RhbGtzIiwiYm9va19yZWFkZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImJvb2tfd3JpdGVyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImY1MzFmOGNlLWIyOGItNGY4Zi1hYjY3LTk3NmIwMGE0NTFiYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTW9oYW1hZCBTaGFyaWZpIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2hhcmlmaSIsImdpdmVuX25hbWUiOiJNb2hhbWFkIiwiZmFtaWx5X25hbWUiOiJTaGFyaWZpIiwiZW1haWwiOiJzaGFyaWZpQGdtYWlsLmNvbSJ9.qrcteX_bPmITp0UUVR-4q-9lly6y1IWksQOTSHmJSRMHRt6VoGuBo6mEskuF6yvki-rZf1_LPLDcqTUPRNVWOzWWRANWRvLK4xNCjg3sa1ZxB0-X_-zOMdUEkQ7JqlPoOdsEu3E9bu4KGp-S415jjzYt9FJKyMlEOQ0WWzACHWQ9vlo4R8_hXd4ljESlxCy4LgEpj1hY0Uwc3GA5KZkaLoxrvqOwWNnj0nfp-pMkaCb9o2cE43CmUoC0MkK2uLs9hEPSQjtkGJCt_sk6hDibOAl_NRIWLZhuB2yzS5LTXTxgcojCh0_zdTt-xVjfRr_b9AVr9BfBbTqOPZaYtuRvYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Microservices\",\n    \"author\": \"Chris Richardson\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "introspection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGeW5JSjFHVlVKZnE0VGNwY3U3Uk9YNEVGV2Q5ZTQxOVBmYjRwUVYzUVhVIn0.eyJleHAiOjE3MDI1Njg2MDcsImlhdCI6MTcwMjU2NTMwNywianRpIjoiNzU2ZTBmZmYtOWI1NC00NjRhLWE3ODktOGEyNDAwZTFiNTFlIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9qYXZhX3RhbGtzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjM1ZjRmNjc4LTYyY2EtNDI0YS1iNWQ1LTQ1MmIzMGFmNDA4YyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRlbW8iLCJzZXNzaW9uX3N0YXRlIjoiNjhlYjVmYTUtMTEwNS00NTU4LTg3ZTQtN2YwOTYxNTdjNDg0IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwOTAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbInJlYWRlciIsIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1qYXZhX3RhbGtzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiNjhlYjVmYTUtMTEwNS00NTU4LTg3ZTQtN2YwOTYxNTdjNDg0IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJNb2hhbWFkIFNoYXJpZmkiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzaGFyaWZpIiwiZ2l2ZW5fbmFtZSI6Ik1vaGFtYWQiLCJmYW1pbHlfbmFtZSI6IlNoYXJpZmkiLCJlbWFpbCI6InNoYXJpZmlAZ21haWwuY29tIn0.PT0p3HI7QIeTp5EFsFgSdjigv2WdlRiFCkiwHeh5gXAqC6Ivyemai_CPvVO3BmuZL_3qGj-aZXe78x5mAKtHVLnFZJe6qNoPmNfeUV7EKk2cKyLiykRy8n9a8fgAlS-xSsbCtAhMjgqIu48DNirDLV-TeNrW28rSeEOk5Diu2EFQA32VY_cHe5S-apNheLeobET09rjRuav0sn5r4sXq6c3GeDjFQPzgOuLggMW5rpPYPEBjRFbcilmxQ9aeuUPEtX2El3eDjGqB5OjTjK6OTPx_CRzzRgyWaminj_tOfnihCDAFkNOQCHDDL_hrG2kKynMxjBEQnlCUhOVecM9xUQ",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "demo",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "u5qnSlEBTqqqTlBIw7IbjaSEHFVnSKAq",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/token/introspect",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"java_talks",
+						"protocol",
+						"openid-connect",
+						"token",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revoke token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGeW5JSjFHVlVKZnE0VGNwY3U3Uk9YNEVGV2Q5ZTQxOVBmYjRwUVYzUVhVIn0.eyJleHAiOjE3MDI1Njg2MDcsImlhdCI6MTcwMjU2NTMwNywianRpIjoiNzU2ZTBmZmYtOWI1NC00NjRhLWE3ODktOGEyNDAwZTFiNTFlIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9qYXZhX3RhbGtzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjM1ZjRmNjc4LTYyY2EtNDI0YS1iNWQ1LTQ1MmIzMGFmNDA4YyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRlbW8iLCJzZXNzaW9uX3N0YXRlIjoiNjhlYjVmYTUtMTEwNS00NTU4LTg3ZTQtN2YwOTYxNTdjNDg0IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwOTAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbInJlYWRlciIsIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1qYXZhX3RhbGtzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiNjhlYjVmYTUtMTEwNS00NTU4LTg3ZTQtN2YwOTYxNTdjNDg0IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJNb2hhbWFkIFNoYXJpZmkiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzaGFyaWZpIiwiZ2l2ZW5fbmFtZSI6Ik1vaGFtYWQiLCJmYW1pbHlfbmFtZSI6IlNoYXJpZmkiLCJlbWFpbCI6InNoYXJpZmlAZ21haWwuY29tIn0.PT0p3HI7QIeTp5EFsFgSdjigv2WdlRiFCkiwHeh5gXAqC6Ivyemai_CPvVO3BmuZL_3qGj-aZXe78x5mAKtHVLnFZJe6qNoPmNfeUV7EKk2cKyLiykRy8n9a8fgAlS-xSsbCtAhMjgqIu48DNirDLV-TeNrW28rSeEOk5Diu2EFQA32VY_cHe5S-apNheLeobET09rjRuav0sn5r4sXq6c3GeDjFQPzgOuLggMW5rpPYPEBjRFbcilmxQ9aeuUPEtX2El3eDjGqB5OjTjK6OTPx_CRzzRgyWaminj_tOfnihCDAFkNOQCHDDL_hrG2kKynMxjBEQnlCUhOVecM9xUQ",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "demo",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "u5qnSlEBTqqqTlBIw7IbjaSEHFVnSKAq",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/java_talks/protocol/openid-connect/revoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"java_talks",
+						"protocol",
+						"openid-connect",
+						"revoke"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
